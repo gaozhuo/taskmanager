@@ -5,7 +5,8 @@ import {
   MdSidenavModule,
   MdIconModule,
   MdButtonModule, MdCardModule, MdInputModule, MdList, MdListModule, MdSlideToggle, MdSliderModule, MdSlideToggleModule,
-  MdGridList, MdGridListModule, MdDialogModule, MdAutocompleteModule, MdMenuModule, MdCheckboxModule, MdTooltipModule
+  MdGridList, MdGridListModule, MdDialogModule, MdAutocompleteModule, MdMenuModule, MdCheckboxModule, MdTooltipModule,
+  MdRadioModule, MdDatepickerModule, MdDatepickerToggle, MdNativeDateModule
 } from '@angular/material';
 
 @NgModule({
@@ -24,7 +25,10 @@ import {
     MdAutocompleteModule,
     MdMenuModule,
     MdCheckboxModule,
-    MdTooltipModule
+    MdTooltipModule,
+    MdRadioModule,
+    MdDatepickerModule,
+    MdNativeDateModule
   ],
   exports: [
     CommonModule,
@@ -41,7 +45,10 @@ import {
     MdAutocompleteModule,
     MdMenuModule,
     MdCheckboxModule,
-    MdTooltipModule
+    MdTooltipModule,
+    MdRadioModule,
+    MdDatepickerModule,
+    MdNativeDateModule
   ],
   declarations: []
 })
