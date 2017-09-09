@@ -1,0 +1,12 @@
+.task-container {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  height: 100%;
+}
+
+.task-list-container {
+  flex: 0 0 360px;
+}

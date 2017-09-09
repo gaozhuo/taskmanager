@@ -1,0 +1,6 @@
+<div class="task-container">
+  <app-task-list class="task-list-container" *ngFor="let list of lists">
+    <app-task-header [header]="list.name"></app-task-header>
+    <app-task-item></app-task-item>
+  </app-task-list>
+</div>

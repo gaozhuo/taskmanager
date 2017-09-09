@@ -11,14 +11,14 @@ import {InviteComponent} from '../invite/invite.component';
 export class ProjectListComponent implements OnInit {
   projects = [
     {
-      "name": "问题跟踪系统",
-      "desc": "用于 Bug 的内部跟踪和管理",
-      "coverImg": "/assets/img/covers/1.jpg"
+      name: '问题跟踪系统',
+      desc: '用于 Bug 的内部跟踪和管理',
+      coverImg: '/assets/img/covers/1.jpg'
     },
     {
-      "name": "某某公司 ERP 系统",
-      "desc": "为某某公司开发的定制化 ERP 系统",
-      "coverImg": "/assets/img/covers/20.jpg"
+      name: '某某公司 ERP 系统',
+      desc: '为某某公司开发的定制化 ERP 系统',
+      coverImg: '/assets/img/covers/20.jpg'
     }
   ];
 
