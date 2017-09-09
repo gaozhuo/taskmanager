@@ -16,7 +16,7 @@ import {ProjectRoutingModule} from './project-routing.module';
     ProjectItemComponent,
     NewProjectComponent,
     InviteComponent],
-  entryComponents: [NewProjectComponent]
+  entryComponents: [NewProjectComponent, InviteComponent]
 })
 export class ProjectModule {
 }
