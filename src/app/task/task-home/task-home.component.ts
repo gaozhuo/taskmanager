@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MdDialog} from '@angular/material';
 import {NewTaskComponent} from '../new-task/new-task.component';
 import {MoveTaskComponent} from '../move-task/move-task.component';
+import {NewListComponent} from '../new-list/new-list.component';
 
 @Component({
   selector: 'app-task-home',
@@ -81,10 +82,22 @@ export class TaskHomeComponent implements OnInit {
   }
 
   onOpenNewTaskDialog() {
-    this.dialog.open(NewTaskComponent);
+    this.dialog.open(NewTaskComponent, {data: {title: '新建任务'}});
   }
 
-  openMoveAllDialog() {
+  onOpenMoveAllDialog() {
     this.dialog.open(MoveTaskComponent, {data: {lists: this.lists}});
+  }
+
+  onItemClick(task) {
+    this.dialog.open(NewTaskComponent, {data: {title: '修改任务', task: task}});
+  }
+
+  openNewListDialog() {
+    this.dialog.open(NewListComponent, {data: {title: '新建列表'}});
+  }
+
+  onOpenEditListDialog(list) {
+    this.dialog.open(NewListComponent, {data: {title: '修改列表', list: list}});
   }
 }

@@ -1,10 +1,12 @@
 <md-list-item
+  class="container"
+  (click)="onItemClick()"
   [ngClass]="{
  'priority-normal': item.priority == 3,
  'priority-important': item.priority == 2,
  'priority-emergency': item.priority == 1
  }">
-  <md-checkbox [checked]="item.completed"></md-checkbox>
+  <md-checkbox [checked]="item.completed" (click)="onCheckboxClick($event)"></md-checkbox>
   <div class="content-container">
     <div class="content">
       <span [md-tooltip]="item.desc" [ngClass]="{'completed':item.completed}">{{item.desc}}</span>
