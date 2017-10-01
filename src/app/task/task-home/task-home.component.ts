@@ -1,15 +1,19 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostBinding, OnInit} from '@angular/core';
 import {MdDialog} from '@angular/material';
 import {NewTaskComponent} from '../new-task/new-task.component';
 import {MoveTaskComponent} from '../move-task/move-task.component';
 import {NewListComponent} from '../new-list/new-list.component';
+import {slideToRight} from '../../anims/router.anim';
 
 @Component({
   selector: 'app-task-home',
   templateUrl: './task-home.component.html',
-  styleUrls: ['./task-home.component.scss']
+  styleUrls: ['./task-home.component.scss'],
+  animations: [slideToRight]
 })
 export class TaskHomeComponent implements OnInit {
+  @HostBinding('@routeAnim') state;
+
   lists = [
     {
       id: 1,

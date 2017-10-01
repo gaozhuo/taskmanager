@@ -1,7 +1,9 @@
-:host {
+.container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  overflow-y: auto;
+  height: 100%;
 }
 
 .card {

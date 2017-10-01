@@ -5,3 +5,21 @@ md-sidenav {
 md-sidenav-container.myapp-dark-theme {
   background: #303030;
 }
+
+md-sidenav-container, .site {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.site {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+

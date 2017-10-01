@@ -8,18 +8,21 @@ import {DomSanitizer} from '@angular/platform-browser';
 import {SharedModule} from '../shared/shared.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpModule} from '@angular/http';
+import {AppRoutingModule} from '../app-routing.module';
 
 
 @NgModule({
   imports: [
     SharedModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AppRoutingModule
   ],
   exports: [
     HttpModule,
     HeaderComponent,
     FooterComponent,
-    SidebarComponent
+    SidebarComponent,
+    AppRoutingModule
   ],
   declarations: [HeaderComponent, FooterComponent, SidebarComponent]
 })
