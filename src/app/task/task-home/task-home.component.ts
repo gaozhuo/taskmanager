@@ -1,4 +1,4 @@
-import {Component, HostBinding, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, HostBinding, OnInit} from '@angular/core';
 import {MdDialog} from '@angular/material';
 import {NewTaskComponent} from '../new-task/new-task.component';
 import {MoveTaskComponent} from '../move-task/move-task.component';
@@ -9,7 +9,8 @@ import {slideToRight} from '../../anims/router.anim';
   selector: 'app-task-home',
   templateUrl: './task-home.component.html',
   styleUrls: ['./task-home.component.scss'],
-  animations: [slideToRight]
+  animations: [slideToRight],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TaskHomeComponent implements OnInit {
   @HostBinding('@routeAnim') state;

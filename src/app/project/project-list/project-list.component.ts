@@ -1,4 +1,4 @@
-import {Component, HostBinding, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, OnInit} from '@angular/core';
 import {MdDialog} from '@angular/material';
 import {NewProjectComponent} from '../new-project/new-project.component';
 import {InviteComponent} from '../invite/invite.component';
@@ -10,7 +10,8 @@ import {listAnimation} from '../../anims/list.anim';
   selector: 'app-project-list',
   templateUrl: './project-list.component.html',
   styleUrls: ['./project-list.component.scss'],
-  animations: [slideToRight, listAnimation]
+  animations: [slideToRight, listAnimation],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProjectListComponent implements OnInit {
   @HostBinding('@routeAnim') state;
@@ -27,22 +28,10 @@ export class ProjectListComponent implements OnInit {
       name: '某某公司 ERP 系统',
       desc: '为某某公司开发的定制化 ERP 系统',
       coverImg: '/assets/img/covers/2.jpg'
-    },
-    {
-      id: 1,
-      name: '问题跟踪系统',
-      desc: '用于 Bug 的内部跟踪和管理',
-      coverImg: '/assets/img/covers/1.jpg'
-    },
-    {
-      id: 2,
-      name: '某某公司 ERP 系统',
-      desc: '为某某公司开发的定制化 ERP 系统',
-      coverImg: '/assets/img/covers/2.jpg'
     }
   ];
 
-  constructor(private dialog: MdDialog) {
+  constructor(private dialog: MdDialog, private changeDetectorRef: ChangeDetectorRef) {
   }
 
   ngOnInit() {
@@ -59,6 +48,7 @@ export class ProjectListComponent implements OnInit {
           desc: '单点登录，部署',
           coverImg: '/assets/img/covers/4.jpg'
         }];
+      this.changeDetectorRef.markForCheck();
     });
   }
 
@@ -76,6 +66,7 @@ export class ProjectListComponent implements OnInit {
     dialogRef.afterClosed().subscribe(flag => {
       console.log(flag);
       this.projects = this.projects.filter(p => p.id !== project.id);
+      this.changeDetectorRef.markForCheck();
     });
   }
 }

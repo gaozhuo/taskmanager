@@ -11,7 +11,7 @@
   </div>
 
   <md-autocomplete #autoMembers="mdAutocomplete" [displayWith]="displayUser">
-    <md-option *ngFor="let item of items" value="{{item.name}}">
+    <md-option *ngFor="let item of items" [value]="item">
       {{item.name}}
     </md-option>
   </md-autocomplete>

@@ -1,10 +1,11 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Inject, OnInit} from '@angular/core';
 import {MD_DIALOG_DATA, MdDialogRef} from '@angular/material';
 
 @Component({
   selector: 'app-new-list',
   templateUrl: './new-list.component.html',
-  styleUrls: ['./new-list.component.scss']
+  styleUrls: ['./new-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NewListComponent implements OnInit {
   title: String;
