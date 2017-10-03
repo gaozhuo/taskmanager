@@ -9,50 +9,38 @@ import {
   MdRadioModule, MdDatepickerModule, MdDatepickerToggle, MdNativeDateModule, MdSelectModule
 } from '@angular/material';
 import {ConfirmDialogComponent} from './confirm-dialog/confirm-dialog.component';
+import {DirectivesModule} from '../directives/directives.module';
+
+const commonModule = [
+  CommonModule,
+  MdToolbarModule,
+  MdSidenavModule,
+  MdIconModule,
+  MdButtonModule,
+  MdCardModule,
+  MdInputModule,
+  MdListModule,
+  MdSlideToggleModule,
+  MdGridListModule,
+  MdDialogModule,
+  MdAutocompleteModule,
+  MdMenuModule,
+  MdCheckboxModule,
+  MdTooltipModule,
+  MdRadioModule,
+  MdDatepickerModule,
+  MdNativeDateModule,
+  MdSelectModule,
+  DirectivesModule
+];
 
 @NgModule({
   imports: [
-    CommonModule,
-    MdToolbarModule,
-    MdSidenavModule,
-    MdIconModule,
-    MdButtonModule,
-    MdCardModule,
-    MdInputModule,
-    MdListModule,
-    MdSlideToggleModule,
-    MdGridListModule,
-    MdDialogModule,
-    MdAutocompleteModule,
-    MdMenuModule,
-    MdCheckboxModule,
-    MdTooltipModule,
-    MdRadioModule,
-    MdDatepickerModule,
-    MdNativeDateModule,
-    MdSelectModule,
+    ...commonModule
   ],
   exports: [
-    CommonModule,
-    MdToolbarModule,
-    MdSidenavModule,
-    MdIconModule,
-    MdButtonModule,
-    MdCardModule,
-    MdInputModule,
-    MdListModule,
-    MdSlideToggleModule,
-    MdGridListModule,
-    MdDialogModule,
-    MdAutocompleteModule,
-    MdMenuModule,
-    MdCheckboxModule,
-    MdTooltipModule,
-    MdRadioModule,
-    MdDatepickerModule,
-    MdNativeDateModule,
-    MdSelectModule,
-    ConfirmDialogComponent
+    ...commonModule,
+    ConfirmDialogComponent,
   ],
   declarations: [ConfirmDialogComponent],
   entryComponents: [ConfirmDialogComponent]

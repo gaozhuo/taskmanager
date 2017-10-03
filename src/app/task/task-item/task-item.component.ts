@@ -19,7 +19,6 @@ export class TaskItemComponent implements OnInit {
 
   @HostListener('mouseenter')
   onMouseEnter() {
-    console.log('enter');
     this.itemState = 'hover';
   }
 
