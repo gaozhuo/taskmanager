@@ -10,6 +10,8 @@ import {
 } from '@angular/material';
 import {ConfirmDialogComponent} from './confirm-dialog/confirm-dialog.component';
 import {DirectivesModule} from '../directives/directives.module';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {ImageListSelectComponent} from '../shared/image-list-select/image-list-select.component';
 
 const commonModule = [
   CommonModule,
@@ -31,7 +33,9 @@ const commonModule = [
   MdDatepickerModule,
   MdNativeDateModule,
   MdSelectModule,
-  DirectivesModule
+  DirectivesModule,
+  FormsModule,
+  ReactiveFormsModule
 ];
 
 @NgModule({
@@ -41,8 +45,9 @@ const commonModule = [
   exports: [
     ...commonModule,
     ConfirmDialogComponent,
+    ImageListSelectComponent
   ],
-  declarations: [ConfirmDialogComponent],
+  declarations: [ConfirmDialogComponent, ImageListSelectComponent],
   entryComponents: [ConfirmDialogComponent]
 })
 export class SharedModule {

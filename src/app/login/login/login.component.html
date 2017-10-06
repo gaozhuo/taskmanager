@@ -1,16 +1,18 @@
-<form>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
   <md-card class="card">
     <md-card-header>
       <md-card-title>登录</md-card-title>
     </md-card-header>
     <md-card-content>
       <md-input-container class="full-width">
-        <input mdInput type="text" placeholder="您的email">
+        <input mdInput type="text" placeholder="您的email" formControlName="email">
+        <md-error>用户名必填</md-error>
       </md-input-container>
       <md-input-container class="full-width">
-        <input mdInput type="text" placeholder="您的密码">
+        <input mdInput type="text" placeholder="您的密码" formControlName="password">
+        <md-error>密码不正确</md-error>
       </md-input-container>
-      <button md-raised-button type="button">登录</button>
+      <button md-raised-button color="primary" type="submit" [disabled]="!form.valid">登录</button>
     </md-card-content>
     <md-card-actions class="text-right">
       <p>还没有账户？<a routerLink="/register" routerLinkActive="active">注册</a></p>
@@ -26,7 +28,8 @@
     </md-card-header>
     <img md-card-image src="/assets/img/quotes/4.jpg">
     <md-card-content>
-      The world won't care about your self-esteem. The world will expect you to accomplish something before you feel good about yourself.
+      The world won't care about your self-esteem. The world will expect you to accomplish something before you feel
+      good about yourself.
     </md-card-content>
   </md-card>
 </form>
