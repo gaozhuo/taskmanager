@@ -9,22 +9,32 @@ import {SharedModule} from '../shared/shared.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpModule} from '@angular/http';
 import {AppRoutingModule} from '../app-routing.module';
+import {ServiceModule} from '../service/service.module';
+import {HttpClientModule} from '@angular/common/http';
+import {appConfig} from '../app.token';
 
 
 @NgModule({
   imports: [
     SharedModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ServiceModule.forRoot()
   ],
   exports: [
     HttpModule,
+    HttpClientModule,
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
     AppRoutingModule
   ],
-  declarations: [HeaderComponent, FooterComponent, SidebarComponent]
+  declarations: [HeaderComponent, FooterComponent, SidebarComponent],
+  providers: [
+    {
+      provide: appConfig,
+      useValue: {apiUrl: 'http://localhost:3003'}
+    }]
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parent: CoreModule,
