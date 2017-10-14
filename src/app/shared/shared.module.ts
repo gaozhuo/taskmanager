@@ -1,17 +1,30 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {
-  MdToolbarModule,
-  MdSidenavModule,
+  MdAutocompleteModule,
+  MdButtonModule, MdButtonToggleModule,
+  MdCardModule,
+  MdCheckboxModule,
+  MdDatepickerModule,
+  MdDialogModule,
+  MdGridListModule,
   MdIconModule,
-  MdButtonModule, MdCardModule, MdInputModule, MdList, MdListModule, MdSlideToggle, MdSliderModule, MdSlideToggleModule,
-  MdGridList, MdGridListModule, MdDialogModule, MdAutocompleteModule, MdMenuModule, MdCheckboxModule, MdTooltipModule,
-  MdRadioModule, MdDatepickerModule, MdDatepickerToggle, MdNativeDateModule, MdSelectModule
+  MdInputModule,
+  MdListModule,
+  MdMenuModule,
+  MdNativeDateModule,
+  MdRadioModule,
+  MdSelectModule,
+  MdSidenavModule,
+  MdSlideToggleModule,
+  MdToolbarModule,
+  MdTooltipModule
 } from '@angular/material';
 import {ConfirmDialogComponent} from './confirm-dialog/confirm-dialog.component';
 import {DirectivesModule} from '../directives/directives.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ImageListSelectComponent} from '../shared/image-list-select/image-list-select.component';
+import {AgeInputComponent} from '../shared/age-input/age-input.component';
 
 const commonModule = [
   CommonModule,
@@ -35,7 +48,8 @@ const commonModule = [
   MdSelectModule,
   DirectivesModule,
   FormsModule,
-  ReactiveFormsModule
+  ReactiveFormsModule,
+  MdButtonToggleModule
 ];
 
 @NgModule({
@@ -45,9 +59,10 @@ const commonModule = [
   exports: [
     ...commonModule,
     ConfirmDialogComponent,
-    ImageListSelectComponent
+    ImageListSelectComponent,
+    AgeInputComponent
   ],
-  declarations: [ConfirmDialogComponent, ImageListSelectComponent],
+  declarations: [ConfirmDialogComponent, ImageListSelectComponent, AgeInputComponent],
   entryComponents: [ConfirmDialogComponent]
 })
 export class SharedModule {
