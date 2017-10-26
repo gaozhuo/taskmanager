@@ -15,13 +15,13 @@ export class TaskListService {
   }
 
   add(taskList: TaskList): Observable<TaskList> {
-    const uri = `${this.appConfig.uri}/${this.domain}`;
+    const uri = `${this.appConfig.apiUrl}/${this.domain}`;
     return this.httpClient
       .post(uri, JSON.stringify(taskList), {headers: this.headers});
   }
 
   update(taskList: TaskList): Observable<TaskList> {
-    const uri = `${this.appConfig.uri}/${this.domain}/${taskList.id}`;
+    const uri = `${this.appConfig.apiUrl}/${this.domain}/${taskList.id}`;
     const toUpdate = {
       name: taskList.name
     };
@@ -30,7 +30,7 @@ export class TaskListService {
   }
 
   del(taskList: TaskList): Observable<TaskList> {
-    const uri = `${this.appConfig.uri}/${this.domain}/${taskList.id}`;
+    const uri = `${this.appConfig.apiUrl}/${this.domain}/${taskList.id}`;
     return this.httpClient
       .delete(uri)
       .mapTo(taskList);
@@ -38,15 +38,15 @@ export class TaskListService {
 
   // GET /tasklist
   get(projectId: string): Observable<TaskList[]> {
-    const uri = `${this.appConfig.uri}/${this.domain}`;
+    const uri = `${this.appConfig.apiUrl}/${this.domain}`;
     const params = new HttpParams().set('projectId', projectId);
     return this.httpClient
       .get(uri, {params: params});
   }
 
   swapOrder(src: TaskList, target: TaskList): Observable<TaskList[]> {
-    const dragUri = `${this.appConfig.uri}/${this.domain}/${src.id}`;
-    const dropUri = `${this.appConfig.uri}/${this.domain}/${target.id}`;
+    const dragUri = `${this.appConfig.apiUrl}/${this.domain}/${src.id}`;
+    const dropUri = `${this.appConfig.apiUrl}/${this.domain}/${target.id}`;
     const drag$ = this.httpClient
       .patch<TaskList>(dragUri, JSON.stringify({order: target.order}), {headers: this.headers});
     const drop$ = this.httpClient

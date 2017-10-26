@@ -32,7 +32,7 @@ export class AuthService {
    * @param user 用户信息，id 属性会被忽略，因为服务器端会创建新的 id
    */
   register(user: User): Observable<Auth> {
-    const uri = `${this.appConfig.uri}/users`;
+    const uri = `${this.appConfig.apiUrl}/users`;
     const params = new HttpParams().set('email', user.email);
     return this.httpClient
       .get<User[]>(uri, {params: params})
@@ -52,7 +52,7 @@ export class AuthService {
    * @param password 密码（明文），服务器会进行加密处理
    */
   login(email: string, password: string): Observable<Auth> {
-    const uri = `${this.appConfig.uri}/users`;
+    const uri = `${this.appConfig.apiUrl}/users`;
     const params = new HttpParams()
       .set('email', email).set('password', password);
     return this.httpClient

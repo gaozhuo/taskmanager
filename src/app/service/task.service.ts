@@ -17,7 +17,7 @@ export class TaskService {
   }
 
   add(task: Task): Observable<Task> {
-    const uri = `${this.appConfig.uri}/${this.domain}`;
+    const uri = `${this.appConfig.apiUrl}/${this.domain}`;
     const toAdd = {
       taskListId: task.taskListId,
       desc: task.desc,
@@ -37,7 +37,7 @@ export class TaskService {
   }
 
   update(task: Task): Observable<Task> {
-    const uri = `${this.appConfig.uri}/${this.domain}/${task.id}`;
+    const uri = `${this.appConfig.apiUrl}/${this.domain}/${task.id}`;
     const toUpdate = {
       desc: task.desc,
       ownerId: task.ownerId,
@@ -52,7 +52,7 @@ export class TaskService {
   }
 
   del(task: Task): Observable<Task> {
-    const uri = `${this.appConfig.uri}/${this.domain}/${task.id}`;
+    const uri = `${this.appConfig.apiUrl}/${this.domain}/${task.id}`;
     return this.httpClient
       .delete(uri)
       .mapTo(task);
@@ -60,7 +60,7 @@ export class TaskService {
 
   // GET /tasklist
   get(taskListId: string): Observable<Task[]> {
-    const uri = `${this.appConfig.uri}/${this.domain}`;
+    const uri = `${this.appConfig.apiUrl}/${this.domain}`;
     const params = new HttpParams().set('taskListId', taskListId);
     return this.httpClient
       .get<Task[]>(uri, {params: params});
@@ -82,26 +82,26 @@ export class TaskService {
   }
 
   move(taskId: string, taskListId: string): Observable<Task> {
-    const uri = `${this.appConfig.uri}/${this.domain}/${taskId}`;
+    const uri = `${this.appConfig.apiUrl}/${this.domain}/${taskId}`;
     return this.httpClient
       .patch(uri, JSON.stringify({taskListId: taskListId}), {headers: this.headers});
   }
 
   complete(task: Task): Observable<Task> {
-    const uri = `${this.appConfig.uri}/${this.domain}/${task.id}`;
+    const uri = `${this.appConfig.apiUrl}/${this.domain}/${task.id}`;
     return this.httpClient
       .patch(uri, JSON.stringify({completed: !task.completed}), {headers: this.headers});
   }
 
   addTaskRef(user: User, taskId: string): Observable<User> {
-    const uri = `${this.appConfig.uri}/users/${user.id}`;
+    const uri = `${this.appConfig.apiUrl}/users/${user.id}`;
     const taskIds = (user.taskIds) ? user.taskIds : [];
     return this.httpClient
       .patch<User>(uri, JSON.stringify({taskIds: [...taskIds, taskId]}), {headers: this.headers});
   }
 
   removeTaskRef(user: User, taskId: string): Observable<User> {
-    const uri = `${this.appConfig.uri}/users/${user.id}`;
+    const uri = `${this.appConfig.apiUrl}/users/${user.id}`;
     const taskIds = (user.taskIds) ? user.taskIds : [];
     const index = taskIds.indexOf(taskId);
     return this.httpClient

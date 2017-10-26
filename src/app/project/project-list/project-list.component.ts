@@ -1,15 +1,15 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, OnDestroy, OnInit} from '@angular/core';
-import {MdDialog} from '@angular/material';
-import {NewProjectComponent} from '../new-project/new-project.component';
-import {InviteComponent} from '../invite/invite.component';
-import {ConfirmDialogComponent} from '../../shared/confirm-dialog/confirm-dialog.component';
-import {slideToRight} from '../../anims/router.anim';
-import {listAnimation} from '../../anims/list.anim';
-import {ProjectService} from '../../service/project.service';
-import {Observable} from 'rxjs/Observable';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostBinding, OnDestroy, OnInit } from '@angular/core';
+import { MdDialog } from '@angular/material';
+import { NewProjectComponent } from '../new-project/new-project.component';
+import { InviteComponent } from '../invite/invite.component';
+import { ConfirmDialogComponent } from '../../shared/confirm-dialog/confirm-dialog.component';
+import { slideToRight } from '../../anims/router.anim';
+import { listAnimation } from '../../anims/list.anim';
+import { ProjectService } from '../../service/project.service';
+import { Observable } from 'rxjs/Observable';
 import * as _ from 'lodash';
-import {Project} from '../../domain/project.model';
-import {Subscription} from 'rxjs/Subscription';
+import { Project } from '../../domain/project.model';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-project-list',
@@ -60,7 +60,7 @@ export class ProjectListComponent implements OnInit, OnDestroy {
   }
 
   onOpenInviteDialog() {
-    const dialogRef = this.dialog.open(InviteComponent);
+    const dialogRef = this.dialog.open(InviteComponent, {data: {members: []}});
   }
 
   onOpenEditProjectDialog(project: Project) {
